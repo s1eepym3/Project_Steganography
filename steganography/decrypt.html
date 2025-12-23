@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Extract Message | StegaTool</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#2a0620] text-pink-100 min-h-screen flex">
+
+  <aside class="w-64 bg-[#3b0a2a] p-6 hidden md:block">
+    <h1 class="text-xl font-bold text-pink-300">StegaTool</h1>
+    <p class="text-xs text-pink-400 mb-6">Digital Steganography</p>
+
+    <nav class="space-y-2 text-sm">
+      <a href="/index.html" class="block hover:underline">← Dashboard</a>
+      <a href="encrypt.html" class="block hover:underline">Embed Message</a>
+      <a class="block bg-pink-600 rounded px-3 py-2">Extract Message</a>
+    </nav>
+  </aside>
+
+  <main class="flex-1 p-8 max-w-3xl">
+
+    <h2 class="text-2xl font-bold text-pink-300 mb-4">Extract Message</h2>
+
+    <div class="space-y-4 bg-[#3b0a2a] p-6 rounded-xl border border-pink-800">
+
+      <input type="file" id="stegoFile" class="block w-full text-sm">
+
+      <input type="password" id="decodePassword"
+        class="w-full p-2 rounded text-black"
+        placeholder="Password (opsional)">
+
+      <button id="decodeBtn"
+        class="w-full py-3 bg-pink-600 rounded font-semibold">
+        Extract Message
+      </button>
+
+      <div id="decodeResult" class="hidden pt-4 border-t border-pink-800">
+        <textarea id="extractedMessage"
+          class="w-full p-2 rounded text-black"
+          readonly></textarea>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="../stego.js"></script>
+
+  <script>
+    const stegoFile = document.getElementById("stegoFile");
+    const decodePassword = document.getElementById("decodePassword");
+    const decodeBtn = document.getElementById("decodeBtn");
+    const decodeResult = document.getElementById("decodeResult");
+    const extractedMessage = document.getElementById("extractedMessage");
+
+    decodeBtn.onclick = async () => {
+      if (!stegoFile.files.length) {
+        alert("Pilih file");
+        return;
+      }
+
+      try {
+        const file = stegoFile.files[0];
+        const message = file.type.startsWith("image/")
+          ? await decodeMessageFromImage(file, decodePassword.value)
+          : await decodeMessageFromBinary(file, decodePassword.value);
+
+        extractedMessage.value = message;
+        decodeResult.classList.remove("hidden");
+      } catch (e) {
+        alert("Gagal extract: " + e);
+      }
+    };
+  </script>
+</body>
+</html>

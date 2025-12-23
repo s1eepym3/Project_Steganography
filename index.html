@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StegaTool | Digital Steganography Workspace</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              950: "#2a0620",
+              900: "#3b0a2a",
+              800: "#5a0f3f",
+              600: "#a21caf",
+              500: "#ec4899",
+              300: "#f9a8d4",
+              100: "#fce7f3"
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-primary-950 text-primary-100 min-h-screen flex">
+
+  <!-- SIDEBAR -->
+  <aside class="w-64 bg-primary-900 border-r border-primary-800 hidden md:flex flex-col">
+    <div class="p-6 border-b border-primary-800">
+      <h1 class="text-xl font-bold text-primary-300">StegaTool</h1>
+      <p class="text-xs text-primary-400 mt-1">
+        Digital Steganography Workspace
+      </p>
+    </div>
+
+    <nav class="flex-1 p-4 space-y-2 text-sm">
+      <a href="index.html" class="block px-4 py-2 rounded bg-primary-800 text-white">
+        Overview
+      </a>
+      <a href="steganography/encrypt.html" class="block px-4 py-2 rounded hover:bg-primary-800">
+        Embed Message
+      </a>
+      <a href="steganography/decrypt.html" class="block px-4 py-2 rounded hover:bg-primary-800">
+        Extract Message
+      </a>
+      <a href="#media" class="block px-4 py-2 rounded hover:bg-primary-800">
+        Media Support
+      </a>
+      <a href="#team" class="block px-4 py-2 rounded hover:bg-primary-800">
+        Team
+      </a>
+    </nav>
+
+    <div class="p-4 border-t border-primary-800 text-xs text-primary-400">
+      © 2025 StegaTool
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-1 p-6 md:p-10 space-y-10">
+
+    <!-- HEADER -->
+    <header>
+      <h2 class="text-2xl font-bold text-primary-300">
+        Steganography Overview
+      </h2>
+      <p class="text-primary-200 mt-2 max-w-3xl">
+        Aplikasi ini merupakan workspace steganografi berbasis web yang dirancang
+        untuk kebutuhan akademik pada mata kuliah Kriptografi dan Steganografi.
+        Sistem ini memungkinkan penyisipan dan ekstraksi pesan rahasia pada media digital.
+      </p>
+    </header>
+
+    <!-- STATUS PANEL -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl">
+      <div class="bg-primary-900 border border-primary-800 rounded-xl p-5">
+        <p class="text-sm text-primary-400">Media Support</p>
+        <h3 class="text-xl font-semibold mt-1">Image, Audio, Document</h3>
+      </div>
+      <div class="bg-primary-900 border border-primary-800 rounded-xl p-5">
+        <p class="text-sm text-primary-400">Steganography Method</p>
+        <h3 class="text-xl font-semibold mt-1">LSB Technique</h3>
+      </div>
+      <div class="bg-primary-900 border border-primary-800 rounded-xl p-5">
+        <p class="text-sm text-primary-400">System Status</p>
+        <h3 class="text-xl font-semibold mt-1 text-green-400">Ready</h3>
+      </div>
+    </section>
+
+    <!-- QUICK ACTION -->
+    <section class="bg-primary-900 border border-primary-800 rounded-xl p-6 max-w-4xl">
+      <h3 class="text-lg font-semibold text-primary-300 mb-2">
+        Quick Access
+      </h3>
+      <p class="text-primary-200 mb-4">
+        Pilih fitur utama untuk memulai proses steganografi.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a
+          href="steganography/encrypt.html"
+          class="px-6 py-3 bg-primary-600 hover:bg-primary-500 rounded-lg font-semibold transition"
+        >
+          Embed Message
+        </a>
+        <a
+          href="steganography/decrypt.html"
+          class="px-6 py-3 border border-primary-600 hover:bg-primary-800 rounded-lg font-semibold transition"
+        >
+          Extract Message
+        </a>
+      </div>
+    </section>
+
+    <!-- MEDIA SUPPORT -->
+    <section id="media" class="max-w-4xl">
+      <h3 class="text-xl font-bold text-primary-300 mb-4">
+        Supported Media
+      </h3>
+      <div class="overflow-x-auto">
+        <table class="w-full border border-primary-800 rounded-lg text-sm">
+          <thead class="bg-primary-900">
+            <tr>
+              <th class="p-3 text-left">Media Type</th>
+              <th class="p-3 text-left">Format</th>
+              <th class="p-3 text-left">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-primary-800">
+              <td class="p-3">Image</td>
+              <td class="p-3">PNG, JPG</td>
+              <td class="p-3 text-green-400">Supported</td>
+            </tr>
+            <tr class="border-t border-primary-800">
+              <td class="p-3">Audio</td>
+              <td class="p-3">MP3</td>
+              <td class="p-3 text-green-400">Supported</td>
+            </tr>
+            <tr class="border-t border-primary-800">
+              <td class="p-3">Document</td>
+              <td class="p-3">PDF, DOCX, XLSX</td>
+              <td class="p-3 text-green-400">Supported</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="max-w-4xl">
+      <h3 class="text-xl font-bold text-primary-300 mb-4">
+        Development Team
+      </h3>
+      <ul class="space-y-2 text-primary-200">
+        <li>Mohammad Haykhal Nasution – 230170166</li>
+        <li>Nura Dara Anrilva – 230170194</li>
+        <li>Nazwa Salsabilah – 230170196</li>
+        <li>Shafa Adira Rizky – 240170198</li>
+      </ul>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-sm text-primary-400 pt-6 border-t border-primary-800">
+      Aplikasi ini dikembangkan untuk keperluan akademik pada mata kuliah
+      Kriptografi dan Steganografi.
+    </footer>
+
+  </main>
+
+</body>
+</html>
